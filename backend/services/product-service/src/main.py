@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from db import base, session
-from routes import category, subcategory
+from routes import category, subcategory, subgroup
 import models
 # Create tables
 base.Base.metadata.create_all(bind=session.engine)
@@ -9,6 +9,7 @@ base.Base.metadata.create_all(bind=session.engine)
 app = FastAPI(lifespan=None)
 app.include_router(router=category.router, prefix="/category", tags=["categories"])
 app.include_router(router=subcategory.router, prefix="/subcategory", tags=["subcategories"])
+app.include_router(router=subgroup.router, prefix="/subgroup", tags=["subgroups"])
 
 @app.get("/")
 def read_root():
