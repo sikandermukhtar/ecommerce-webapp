@@ -43,6 +43,8 @@ def add_subcategory(subcategory_id: UUID, subcategory: CreateSubCategory, db:Ses
             raise NoResultFound("No subcategory with that id exists.")
         if subcategory.main_category_id is not None:
             db_subcategory.main_category_id = subcategory.main_category_id
+        if subcategory.main_category_id is not None:
+            db_subcategory.main_category_id = subcategory.main_category_id
         db.commit()
         db.refresh(db_subcategory)
         return db_subcategory
