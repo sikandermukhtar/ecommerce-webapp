@@ -1,5 +1,7 @@
+#schemas/subgroup.py
+
 from pydantic import BaseModel, ConfigDict
-from typing import List
+from typing import Optional
 from uuid import UUID
 
 class CreateSubGroup(BaseModel):
@@ -14,3 +16,9 @@ class ReadSubGroup(BaseModel):
     name: str
 
     model_config = ConfigDict(from_attributes=True) 
+    
+
+class UpdateSubGroup(BaseModel):
+    name: Optional[str]
+    sub_category_id: Optional[UUID]
+    

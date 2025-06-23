@@ -1,3 +1,5 @@
+#models/subgroup.py
+
 import uuid
 from sqlalchemy import Column, String, ForeignKey
 from sqlalchemy.dialects.postgresql import UUID
@@ -11,4 +13,4 @@ class SubGroup(Base):
     sub_category_id = Column(UUID(as_uuid=True), ForeignKey("sub_categories.id"), nullable=False)
     sub_category = relationship("SubCategory", back_populates="sub_group")
     #Each sub-sub-category has many products.
-    # products = relationship("Product", back_populates="sub_group", cascade="all, delete")
+    products = relationship("Product", back_populates="sub_group", cascade="all, delete")

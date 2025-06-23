@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+sqlalchemy
+python-dotenv
+fastapi
+uvicorn
+sqlalchemy
+python-dotenv
+psycopg2-binary
+passlib[bcrypt] 
+pyjwt
